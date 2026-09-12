@@ -1,0 +1,24 @@
+plugins:
+  extractors:
+    - name: tap-francetravail
+      namespace: tap_francetravail
+      pip_url: -e .
+      executable: tap-francetravail
+      capabilities:
+        - catalog
+        - discover
+      settings:
+        - name: client_id
+        - name: client_secret
+          sensitive: true
+      config:
+        search_queries:
+          - keywords: "sql"
+          - keywords: "analytics engineer"
+          - keywords: "plsql"
+          - keywords: "pl-sql"
+          - keywords: "pl/sql"
+          - keywords: "pl sql"
+          - keywords: "snowflake"
+          - keywords: "dbt"
+          - keywords: "développeur oracle"
