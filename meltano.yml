@@ -4,6 +4,6 @@ send_anonymous_usage_stats: false
 
 include_paths:
   - "./environments/*.meltano.yml"
-  # - "./plugins/**/*.meltano.yml"
-  # - "./jobs/*.meltano.yml"
+  - "./plugins/**/*.meltano.yml"
+  - "./jobs/*.meltano.yml"
   # - "./schedules/*.meltano.yml"
