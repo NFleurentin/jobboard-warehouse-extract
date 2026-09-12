@@ -1,0 +1,842 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Identifiant unique de l'offre",
+            "examples": [
+                "048KLTP"
+            ]
+        },
+        "intitule": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Intitulé du poste",
+            "examples": [
+                "Boulanger / Boulangère (H/F)"
+            ]
+        },
+        "description": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Description de l'offre",
+            "examples": [
+                "Nous recherchons un boulanger pour notre boulangerie."
+            ]
+        },
+        "dateCreation": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "format": "date-time",
+            "description": "Date de création de l'offre",
+            "examples": [
+                "2023-03-15T10:30:00Z"
+            ]
+        },
+        "dateActualisation": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "format": "date-time",
+            "description": "Date de dernière actualisation de l'offre",
+            "examples": [
+                "2023-03-20T15:45:00Z"
+            ]
+        },
+        "lieuTravail": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Lieu de travail de l'offre",
+            "properties": {
+                "libelle": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Libellé du lieu de travail",
+                    "examples": [
+                        "74 - ANNECY"
+                    ]
+                },
+                "codePostal": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Code postal du lieu de travail",
+                    "examples": [
+                        "74000"
+                    ]
+                },
+                "commune": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Code Insee du lieu de travail",
+                    "examples": [
+                        "74010"
+                    ]
+                },
+                "latitude": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "Latitude du lieu de travail",
+                    "examples": [
+                        45.8997
+                    ]
+                },
+                "longitude": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "Longitude du lieu de travail",
+                    "examples": [
+                        6.1294
+                    ]
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "description": "Champs supplémentaires non définis dans le schéma"
+                }
+            }
+        },
+        "romeCode": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Code ROME de l'offre",
+            "examples": [
+                "D1102"
+            ]
+        },
+        "romeLibelle": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Libellé du code ROME de l'offre",
+            "examples": [
+                "Boulanger / Boulangère"
+            ]
+        },
+        "appellationlibelle": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Libellé de l’appellation ROME de l’offre",
+            "examples": [
+                "Boulanger / Boulangère"
+            ]
+        },
+        "entreprise": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Informations sur l'entreprise proposant l'offre",
+            "properties": {
+                "nom": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Nom de l'entreprise proposant l'offre",
+                    "examples": [
+                        "Boulangerie Dupont"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Description de l'entreprise",
+                    "examples": [
+                        "Boulangerie artisanale située à Annecy."
+                    ]
+                },
+                "logo": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "URL du logo de l'entreprise",
+                    "examples": [
+                        "https://example.com/logo.png"
+                    ]
+                },
+                "url": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "URL du site web de l'entreprise",
+                    "examples": [
+                        "https://example.com"
+                    ]
+                },
+                "entrepriseAdaptee": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "Entreprise adaptée handicap",
+                    "examples": [
+                        true
+                    ]
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "description": "Champs supplémentaires non définis dans le schéma"
+                }
+            }
+        },
+        "typeContrat": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Code du type de contrat proposé",
+            "examples": [
+                "CDI"
+            ]
+        },
+        "typeContratLibelle": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Libellé du type de contrat proposé",
+            "examples": [
+                "CDD - 6 Mois"
+            ]
+        },
+        "natureContrat": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Nature du contrat proposé",
+            "examples": [
+                "Contrat travail"
+            ]
+        },
+        "experienceExige": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "D : débutant accepté, E : exigée, S : souhaitée",
+            "examples": [
+                "D"
+            ]
+        },
+        "experienceLibelle": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Libellé de l'expérience",
+            "examples": [
+                "Débutant accepté"
+            ]
+        },
+        "experienceCommentaire": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "Commentaire sur l'expérience",
+            "examples": [
+                "Expérience dans la vente souhaitée"
+            ]
+        },
+        "formations": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "description": "Liste des formations requises pour le poste",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "codeFormation": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "domaineLibelle": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "niveauLibelle": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "commentaire": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "exigence": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "_extra": {
+                        "type": [
+                            "object",
+                            "null"
+                        ]
+                    }
+                }
+            }
+        },
+        "langues": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "description": "Liste des langues requises pour le poste",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "libelle": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "exigence": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "_extra": {
+                        "type": [
+                            "object",
+                            "null"
+                        ]
+                    }
+                }
+            }
+        },
+        "permis": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "description": "Liste des permis requis pour le poste",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "libelle": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "exigence": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "_extra": {
+                        "type": [
+                            "object",
+                            "null"
+                        ]
+                    }
+                }
+            }
+        },
+        "outilsBureautiques": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "description": "Liste des outils bureautiques utilisés",
+            "items": {
+                "type": [
+                    "string",
+                    "null"
+                ]
+            }
+        },
+        "competences": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "description": "Liste des compétences requises pour le poste",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "libelle": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "exigence": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "_extra": {
+                        "type": [
+                            "object",
+                            "null"
+                        ]
+                    }
+                }
+            }
+        },
+        "salaire": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Information sur le salaire proposé pour le poste",
+            "properties": {
+                "libelle": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "commentaire": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "complement1": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "complement2": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "listeComplements": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "libelle": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "_extra": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "dureeTravailLibelle": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "dureeTravailLibelleConverti": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "complementExercice": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "conditionExercice": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "alternance": {
+            "type": [
+                "boolean",
+                "null"
+            ]
+        },
+        "contact": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Contact",
+            "properties": {
+                "nom": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "coordonnees1": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "coordonnees2": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "coordonnees3": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "telephone": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "courriel": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "commentaire": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "urlRecruteur": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "urlPostulation": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "agence": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "description": "Agence France Travail",
+            "properties": {
+                "telephone": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "courriel": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "nombrePostes": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "accessibleTH": {
+            "type": [
+                "boolean",
+                "null"
+            ]
+        },
+        "deplacementCode": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "deplacementLibelle": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "qualificationCode": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "qualificationLibelle": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "codeNAF": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "secteurActivite": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "secteurActiviteLibelle": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "qualitesProfessionnelles": {
+            "type": [
+                "array",
+                "null"
+            ],
+            "items": {
+                "type": "object",
+                "properties": {
+                    "libelle": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "_extra": {
+                        "type": [
+                            "object",
+                            "null"
+                        ]
+                    }
+                }
+            }
+        },
+        "trancheEffectifEtab": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "origineOffre": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "origine": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "urlOrigine": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "partenaires": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "nom": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "url": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "logo": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "_extra": {
+                                "type": [
+                                    "object",
+                                    "null"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "offresManqueCandidats": {
+            "type": [
+                "boolean",
+                "null"
+            ]
+        },
+        "contexteTravail": {
+            "type": [
+                "object",
+                "null"
+            ],
+            "properties": {
+                "horaires": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "conditionsExercice": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "_extra": {
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "entrepriseAdaptee": {
+            "type": [
+                "boolean",
+                "null"
+            ]
+        },
+        "employeurHandiEngage": {
+            "type": [
+                "boolean",
+                "null"
+            ]
+        },
+        "_extra": {
+            "type": [
+                "object",
+                "null"
+            ]
+        }
+    }
+}
