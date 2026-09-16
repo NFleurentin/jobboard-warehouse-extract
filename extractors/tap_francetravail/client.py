@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import decimal
+import json
 import sys
 from functools import cached_property
 from typing import TYPE_CHECKING, Any
@@ -24,47 +25,11 @@ if TYPE_CHECKING:
     from collections.abc import Iterable
 
     import requests
-    from singer_sdk.helpers.types import Auth, Context
+    from singer_sdk.helpers.types import Auth
     from singer_sdk.streams.rest import HTTPRequest, PageContext
 
 
 SCHEMAS_DIR = SchemaDirectory(schemas)
-
-def normalize_record(record: dict, schema: dict) -> dict:
-    schema_fields = set(schema.get("properties", {}).keys())
-    extra = {}
-
-    normalized = {}
-
-    for key, value in record.items():
-        if key in schema_fields:
-            # Field defined in the schema
-            field_schema = schema["properties"][key]
-
-            # If it’s an object
-            if isinstance(value, dict) and field_schema.get("type") == "object":
-                normalized[key] = normalize_record(value, field_schema)
-
-            # If it’s an array of objects
-            elif isinstance(value, list) and field_schema.get("type") == "array":
-                item_schema = field_schema.get("items", {})
-                normalized[key] = [
-                    normalize_record(item, item_schema)
-                    if isinstance(item, dict)
-                    else item
-                    for item in value
-                ]
-
-            else:
-                normalized[key] = value
-
-        else:
-            # Field not defined in the schema → in "_extra"
-            extra[key] = value
-
-    normalized["_extra"] = extra
-    return normalized
-
 
 class FranceTravailStream(RESTStream):
     """FranceTravail stream class."""
@@ -129,28 +94,17 @@ class FranceTravailStream(RESTStream):
         if response.status_code == 204 or not response.text.strip():
             return []
 
-        # TODO: Parse response body and return a set of records.
-        yield from extract_jsonpath(
-            self.records_jsonpath,
-            input=response.json(parse_float=decimal.Decimal),
-        )
+        # Payload complet
+        payload = response.json(parse_float=decimal.Decimal)
 
-    @override
-    def post_process(
-        self,
-        row: dict,
-        context: Context | None = None,
-    ) -> dict | None:
-        """As needed, append or transform raw data to match expected structure.
+        # Extraction des records
+        for record in extract_jsonpath(self.records_jsonpath, input=payload):
 
-        Note: As of SDK v0.47.0, this method is automatically executed for all stream types.
-        You should not need to call this method directly in custom `get_records` implementations.
+            # On ne garde que id + dateActualisation
+            minimal_record = {
+                "id": record.get("id"),
+                "dateActualisation": record.get("dateActualisation"),
+                "_raw": json.dumps(record, default=str)  # payload brut complet
+            }
 
-        Args:
-            row: An individual record from the stream.
-            context: The stream context.
-
-        Returns:
-            The updated record dictionary, or ``None`` to skip the record.
-        """
-        return normalize_record(row, self.schema)
+            yield minimal_record
