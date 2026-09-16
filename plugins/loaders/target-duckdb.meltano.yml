@@ -1,7 +1,0 @@
-plugins:
-  loaders:
-    - name: target-duckdb
-      variant: meltanolabs
-      pip_url: git+https://github.com/MeltanoLabs/target-duckdb.git@v0.11.1
-      config:
-        add_metadata_columns: true

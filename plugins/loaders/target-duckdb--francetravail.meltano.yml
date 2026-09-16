@@ -1,6 +1,0 @@
-plugins:
-  loaders:
-    - name: target-duckdb--francetravail
-      inherit_from: target-duckdb
-      config:
-        default_target_schema: france_travail
