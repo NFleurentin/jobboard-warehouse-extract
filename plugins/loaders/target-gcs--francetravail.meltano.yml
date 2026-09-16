@@ -1,0 +1,6 @@
+plugins:
+  loaders:
+    - name: target-gcs--francetravail
+      inherit_from: target-gcs
+      config:
+        key_prefix: france-travail/
