@@ -4,5 +4,4 @@ plugins:
       variant: datateer
       pip_url: git+https://github.com/datateer/target-gcs.git setuptools<82
       config:
-        key_prefix: france-travail/offers/
         date_format: "%Y-%m-%d"
