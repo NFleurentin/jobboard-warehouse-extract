@@ -1,4 +1,4 @@
 jobs:
   - name: ingest-francetravail
     tasks:
-      - tap-francetravail target-duckdb--francetravail
+      - tap-francetravail target-gcs--francetravail
