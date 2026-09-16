@@ -5,6 +5,7 @@ from __future__ import annotations
 import decimal
 import json
 import sys
+from datetime import UTC, datetime
 from functools import cached_property
 from typing import TYPE_CHECKING, Any
 
@@ -104,7 +105,8 @@ class FranceTravailStream(RESTStream):
             minimal_record = {
                 "id": record.get("id"),
                 "dateActualisation": record.get("dateActualisation"),
-                "_raw": json.dumps(record, default=str)  # payload brut complet
+                "_raw": json.dumps(record, default=str),  # payload brut complet
+                "_extracted_at": datetime.now(UTC).isoformat(),  # date d'extraction
             }
 
             yield minimal_record
